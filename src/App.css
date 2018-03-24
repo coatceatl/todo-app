@@ -13,4 +13,11 @@
   font-size: 2.5em;
 }
 
+.todo-wrapper {
+  margin: 20px;
+  width: 600px;
+  height: 600px;
+  display: inline-block;
+}
+
 

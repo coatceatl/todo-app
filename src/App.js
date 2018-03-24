@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import Header from './components/Header.jsx';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="todo-header">
-          <h1 className="todo-title">Todo App</h1>
-        </header>
-        <p className="App-intro">
-        </p>
+        <Header />
+        <div className='todo-wrapper'>
+          <h3>Todo list</h3>
+        </div>
       </div>
     );
   }
