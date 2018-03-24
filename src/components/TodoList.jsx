@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 class TodoList extends Component {
   constructor(props) {
     super(props);
-    this.state={task: ''};
+    this.state={
+      task: ''
+    };
 
     this.handleChange=this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    console.log('change');
     this.setState({ task: e.target.value });
   }
 
@@ -21,10 +22,14 @@ class TodoList extends Component {
           <input
             type='text'
             value={task}
+            placeholder='Write your task here...'
             onChange={this.handleChange}
           />
-          <button>New</button>
+          <button>Add Task</button>
         </form>
+        <div>
+          <p>{task}</p>
+        </div>
       </div>
     )
   }
