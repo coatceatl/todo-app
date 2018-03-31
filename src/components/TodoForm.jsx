@@ -12,24 +12,26 @@ class TodoForm extends Component {
     this.handleChange=this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ task: e.target.value });
+  handleChange(task) {
+    this.setState({ task: task.target.value });
   }
 
   render() {
     const task = this.state.task;
     return (
       <div>
-        <form>
+        <form className='form-todo'>
           <input
             type='text'
             ref={((input) => {this.task = input})}
             className='textInput'
             value={this.state.task}
-            placeholder='Write your task here...'
+            placeholder='Add your task here...'
             onChange={this.handleChange}
           />
-          <button>Add Task</button>
+          <span>
+            <button className='btn-todo'>Add</button>
+          </span>
         </form>
         <div>
           <p>{task}</p>
