@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './TodoForm.css';
 
 class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.state={
-      task: ''
+      task: '',
+      tasks: []
     };
 
     this.handleChange=this.handleChange.bind(this);
@@ -21,7 +23,9 @@ class TodoForm extends Component {
         <form>
           <input
             type='text'
-            value={task}
+            ref={((input) => {this.task = input})}
+            className='textInput'
+            value={this.state.task}
             placeholder='Write your task here...'
             onChange={this.handleChange}
           />
