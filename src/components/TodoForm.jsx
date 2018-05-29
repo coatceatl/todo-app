@@ -5,36 +5,41 @@ class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.state={
-      task: '',
-      tasks: []
-    };
+      text: [],
+    }
 
-    this.handleChange=this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(task) {
-    this.setState({ task: task.target.value });
+  handleChange(e) {
+    this.setState({ text: e.target.value });
+    console.log(this.state.text);
+  }
+
+  addTodo(text) {
+    console.log(text);
+    this.props.addTodo(text);
+    this.setState({text: ''})
   }
 
   render() {
-    const task = this.state.task;
+    const text = this.state.text;
     return (
       <div>
         <form className='form-todo'>
           <input
             type='text'
-            ref={((input) => {this.task = input})}
             className='textInput'
-            value={this.state.task}
+            value={this.state.text}
             placeholder='Add your task here...'
-            onChange={this.handleChange}
+            onChange={text => this.handleChange(text)}
           />
-          <span>
-            <button className='btn-todo'>Add</button>
+         <span>
+           <button className='btn-todo' onClick={() => this.addTodo(this.text)}>Add</button>
           </span>
         </form>
         <div>
-          <p>{task}</p>
+          <p>{text}</p>
         </div>
       </div>
     )
