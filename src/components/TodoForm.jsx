@@ -4,11 +4,20 @@ import './TodoForm.css';
 class TodoForm extends Component {
   constructor(props) {
     super(props);
+
     this.state={
-      todo: [],
+      todo: '',
+      todos: [
+        { value: 'Wake Up' },
+        { value: 'Drink coffee' },
+      ]
     }
 
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  addTodo(val) {
+    console.log(this.state.todo);
   }
 
   handleChange(e) {
@@ -17,10 +26,15 @@ class TodoForm extends Component {
 
   render() {
     const todo = this.state.todo;
+    let input;
+    console.log(input);
     return (
       <div>
         <form className='form-todo'>
           <input
+            ref={node => {
+              input = node;
+            }}
             type='text'
             className='textInput'
             value={this.state.todo}
